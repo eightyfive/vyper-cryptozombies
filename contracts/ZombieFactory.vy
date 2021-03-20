@@ -7,8 +7,13 @@ struct Zombie:
     name: String[32]
     dna: uint256
 
+zombieIndex: uint256
 zombies: HashMap[uint256, Zombie]
 
 @external
 def createZombie(name: String[32], dna: uint256):
-    pass
+    self.zombies[self.zombieIndex] = Zombie({
+        name: name,
+        dna: dna
+    })
+    self.zombieIndex += 1
