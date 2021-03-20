@@ -10,6 +10,11 @@ struct Zombie:
 zombieIndex: uint256
 zombies: HashMap[uint256, Zombie]
 
+event NewZombie:
+    zombieId: uint256
+    name: String[32]
+    dna: uint256
+
 @internal
 def _createZombie(_name: String[32], _dna: uint256):
     self.zombies[self.zombieIndex] = Zombie({
@@ -17,6 +22,8 @@ def _createZombie(_name: String[32], _dna: uint256):
         dna: _dna
     })
     self.zombieIndex += 1
+
+    log NewZombie(self.zombieIndex - 1, _name, _dna)
 
 @view
 @internal
