@@ -21,4 +21,5 @@ def _createZombie(_name: String[32], _dna: uint256):
 @view
 @internal
 def _generateRandomDna(_str: String[32]) -> uint256:
-    pass
+    rand: uint256 = convert(keccak256(_str), uint256)
+    return rand % DNA_MODULUS
