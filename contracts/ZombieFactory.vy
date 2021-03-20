@@ -23,3 +23,8 @@ def _createZombie(_name: String[32], _dna: uint256):
 def _generateRandomDna(_str: String[32]) -> uint256:
     rand: uint256 = convert(keccak256(_str), uint256)
     return rand % DNA_MODULUS
+
+@external
+def createRandomZombie(name: String[32]):
+    randDna: uint256 = self._generateRandomDna(name)
+    self._createZombie(name, randDna)
