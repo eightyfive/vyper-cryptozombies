@@ -8,3 +8,7 @@ struct Zombie:
     dna: uint256
 
 zombies: HashMap[uint256, Zombie]
+
+@external
+def createZombie(name: String[32], dna: uint256):
+    pass
