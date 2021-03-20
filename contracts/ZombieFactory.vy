@@ -10,10 +10,10 @@ struct Zombie:
 zombieIndex: uint256
 zombies: HashMap[uint256, Zombie]
 
-@external
-def createZombie(name: String[32], dna: uint256):
+@internal
+def _createZombie(_name: String[32], _dna: uint256):
     self.zombies[self.zombieIndex] = Zombie({
-        name: name,
-        dna: dna
+        name: _name,
+        dna: _dna
     })
     self.zombieIndex += 1
