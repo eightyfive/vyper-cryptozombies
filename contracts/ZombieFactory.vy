@@ -17,3 +17,8 @@ def _createZombie(_name: String[32], _dna: uint256):
         dna: _dna
     })
     self.zombieIndex += 1
+
+@view
+@internal
+def _generateRandomDna(_str: String[32]) -> uint256:
+    pass
